@@ -26,15 +26,23 @@ function leap() {
 
   const result = []
   for (let i = year1; i <= year2; i++) {
-    if ((i % 100 === 0 && i % 400 === 0) || i % 4 && i % 100 !== 0) {
+    if ((i % 400 === 0) || i % 4 === 0 && i % 100 !== 0) {
       result.push(i)
     }
   }
+
+
+  const list = document.getElementById("result");
+  list.innerHTML = "";
+
+  for (let i = 0; i < result.length; ++i) {
+    const li = document.createElement('li')
+    li.innerText = result[i]
+    list.appendChild(li)
+  }
   console.log(result)
 
-
-  const end = result
-  document.getElementById("text").innerHTML=end
+  //document.getElementById("text").innerHTML=list
 }
 window.onload = leap
 
